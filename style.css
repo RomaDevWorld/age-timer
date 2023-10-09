@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  /* configure bg color, text color and font below */
+  background-color: black;
+  color: rgb(255, 242, 166);
+  font-family: monospace;
+}
+
+h1 {
+  /* years number font size */
+  font-size: 100px;
+}
+
+h3 {
+  /* decimal part font size */
+  font-size: 50px;
+}
