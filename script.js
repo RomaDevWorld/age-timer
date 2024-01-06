@@ -1,20 +1,17 @@
-const birth = 1168405200000; //Unix timestamp of the birthday (https://www.unixtimestamp.com/)
+const birth = 0; //Unix timestamp of the birthday (https://www.unixtimestamp.com/)
 const snowFlakes = true;
 
 setInterval(() => {
-  const now = Date.now();
+  const now = new Date().getTime();
+  const diff = now - birth * 1000; // Convert unix timestamp to milliseconds
+  const [int, decimal] = (diff / (1000 * 60 * 60 * 24 * 365.25)).toFixed(9).split(".");
 
-  const passed = (now - birth) / 1000 / 60 / 60 / 24 / 365;
-
-  const timer = document.getElementById("timer");
-  const subTimer = document.getElementById("subTimer");
-
-  timer.innerHTML = Math.floor(passed);
-  subTimer.innerHTML = "." + passed.toFixed(9).toString().split(".")[1];
+  timer.innerHTML = int;
+  subTimer.innerHTML = "." + decimal;
 }, 1); //Increase this number to reduce the refresh rate
 
 if (snowFlakes) {
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 12; i++) {
     const container = document.getElementById("container");
     const snowFlake = document.createElement("div");
     snowFlake.className = "snowflake";
